@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Home() {
   // ⏳ Chrono (5 min)
@@ -31,7 +32,7 @@ export default function Home() {
       setCurrentQuoteIndex((prev) => (prev + 1) % quotes.length);
     }, 5000); // change quote every 5 seconds
     return () => clearInterval(quoteTimer);
-  }, []);
+  }, [quotes.length]);
 
   return (
     <div
@@ -53,19 +54,21 @@ export default function Home() {
 
         {/* 🔄 Quotes dynamiques */}
         <p className="italic text-xl text-blue-200 mb-6 animate-fade">
-          "{quotes[currentQuoteIndex]}"
+          {quotes[currentQuoteIndex]}
         </p>
 
         <p className="mb-8 text-lg text-gray-200">
           Get premium access for free. Limited time only!
         </p>
 
-        {/* Image mockup (taille réduite) */}
+        {/* Image mockup */}
         <div className="flex justify-center">
-          <img
+          <Image
             src="/app.JPG"
             alt="App Preview"
-            className="w-[220px] h-auto rounded-xl mb-8 shadow-lg border-4 border-blue-400/70"
+            width={220}
+            height={400} // adapte selon ton image
+            className="rounded-xl mb-8 shadow-lg border-4 border-blue-400/70"
           />
         </div>
 
