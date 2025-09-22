@@ -79,7 +79,7 @@ export default function Home() {
 
         {/* CTA */}
         <a
-          href="https://your-ogads-link.com"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
         >
